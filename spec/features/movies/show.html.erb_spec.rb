@@ -46,4 +46,23 @@ RSpec.describe "As a user, when I visit a movie's show page" do
         expect(page).to have_content("9")
     end
 
+    it "allows me to add an actor to the cast" do
+        visit "/movies/#{@jazz1.id}"
+       
+        within("#add-actor") do
+            expect(page).to have_button("Add Actor")
+            # expect(page).to have_content(@jerry.name)
+            # expect(page).to have_content(@tom.name)
+        end
+
+        within ("#Add-actor") do
+          fill_in "Add Actor", with: @pluto.name
+          click_on "Add Actor"
+        end
+
+        expect(current_path).to eq("/movies/#{@jazz1.id}")
+
+        expect(page).to have_content(@pluto.name)
+
+    end
 end
