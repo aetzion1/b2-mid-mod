@@ -12,3 +12,14 @@
 
 <h3>Average Actor Age:</h3>
 <%= @movie.actors.avg_age.round %>
+
+<h3>Add an Actor to the Cast: </h3>
+<section id='add-actor'>        
+
+<section id="add-actor">
+<%= form_with url:"/movies/#{@movie.id}", method: :post, local: true do |form| %>
+  <%= form.label :name%>
+  <%= form.text_field :name %><br>
+  <%= form.submit 'Add Actor' %>
+<% end %>
+</section>
