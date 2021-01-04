@@ -13,8 +13,6 @@ RSpec.describe "As a user, when I visit the studio index page" do
   
   it "displays a list of all movie studios" do
     visit '/studios'
-
-    save_and_open_page
     
     expect(all('#studio')[0]).to have_content(@jazzhands.name)
     expect(all('#studio')[1]).to have_content(@deepsouth.name)

@@ -1,2 +1,14 @@
-<h1>Movies#show</h1>
-<p>Find me in app/views/movies/show.html.erb</p>
+<h1><%= @movie.title %></h1>
+
+<p><%= @movie.creation_year%></p>
+<p><%= @movie.genre%></p>
+
+<h3>Actors:</h3>
+<% @movie.actors.sort_by_age.each do |actor| %>
+    <section id=movie-actor>
+    <p><%= actor.name%></p>
+    </section>
+<% end %>
+
+<h3>Average Actor Age:</h3>
+<%= @movie.actors.avg_age.round %>
