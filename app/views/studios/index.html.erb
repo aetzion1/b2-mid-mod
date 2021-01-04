@@ -1,2 +1,13 @@
-<h1>Studios#index</h1>
-<p>Find me in app/views/studios/index.html.erb</p>
+<h1>Studios Index</h1>
+
+<% @studios.each do |studio| %>
+    <section id=studio>
+        <h3><%= studio.name %></h3>
+        <% studio.movies.each do |movie| %>
+            <p><%= movie.title %></p>
+        <% end %>
+    </section>
+<% end %>
+
+
+

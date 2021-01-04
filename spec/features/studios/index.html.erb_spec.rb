@@ -13,6 +13,8 @@ RSpec.describe "As a user, when I visit the studio index page" do
   
   it "displays a list of all movie studios" do
     visit '/studios'
+
+    save_and_open_page
     
     expect(all('#studio')[0]).to have_content(@jazzhands.name)
     expect(all('#studio')[1]).to have_content(@deepsouth.name)
@@ -21,12 +23,12 @@ RSpec.describe "As a user, when I visit the studio index page" do
   it "displays the name of all movies underneath each studio" do
     visit '/studios'
     
-    expect(all('#studio')[0]).to have_content(@jazz1.name)
-    expect(all('#studio')[0]).to have_content(@jazz2.name)
-    expect(all('#studio')[0]).to have_content(@jazz3.name)
+    expect(all('#studio')[0]).to have_content(@jazz1.title)
+    expect(all('#studio')[0]).to have_content(@jazz2.title)
+    expect(all('#studio')[0]).to have_content(@jazz3.title)
 
-    expect(all('#studio')[1]).to have_content(@myshoes.name)
-    expect(all('#studio')[1]).to have_content(@mysandals.name)
+    expect(all('#studio')[1]).to have_content(@myshoes.title)
+    expect(all('#studio')[1]).to have_content(@mysandals.title)
   end
 
 end
